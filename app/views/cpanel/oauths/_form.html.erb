@@ -1,0 +1,14 @@
+<%= simple_form_for([:cpanel,@oauth]) do |f| %>
+  <%= render 'shared/error_messages', :target => @oauth %>
+  <fieldset>
+    <legend></legend>
+    <%= f.input :condition, :as => :text, :input_html => { :rows => 1 } %>
+    <%= f.input :consumer_key %>
+    <%= f.input :consumer_secret %>
+    <div class="form-actions">
+      <%= f.submit t("common.save"), :class => "btn btn-primary", 'data-disable-with' => t("common.saving") %>
+      <%= link_to 'Back', cpanel_oauths_path %>
+    </div>
+  </fieldset>
+<% end %>
+

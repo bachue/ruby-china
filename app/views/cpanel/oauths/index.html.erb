@@ -1,0 +1,36 @@
+<% content_for :sitemap do %>
+  <span class="current">Oauth</span>
+<% end %>
+<h1>Oauth列表</h1>
+
+<table class="table table-bordered table-striped table-condensed">
+  <tr class="head">
+    <td class="first">Id</td>
+    <td>Consumer Key</td>
+    <td>Consumer Secret</td>
+    <td>Request Token</td>
+    <td>Request Secret</td>
+    <td>Access Token</td>
+    <td>Access Secret</td>
+    <td>操作</td>
+  </tr>
+
+<% @oauths.each do |oauth| %>
+  <tr>
+    <td class="first"><%= oauth.id %></td>
+    <td><%= oauth.consumer_key %></td>
+    <td><%= oauth.consumer_secret %></td>
+    <td><%= oauth.request_token %></td>
+    <td><%= oauth.request_secret %></td>
+    <td><%= oauth.access_token %></td>
+    <td><%= oauth.access_secret %></td>
+    <td>
+      <%= link_to '', edit_cpanel_oauth_path(oauth), :class => "icon small_edit" %>
+      <%= link_to '', cpanel_oauth_path(oauth), :method => :delete, 'data-confirm' => '确定要删除吗?', :class => "icon small_delete" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+<br />
+
+<%= link_to 'New Oauth', new_cpanel_oauth_path %>

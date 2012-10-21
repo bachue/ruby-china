@@ -85,6 +85,7 @@ RubyChina::Application.routes.draw do
     resources :site_nodes
     resources :sites
     resources :locations
+    resources :oauths, :except => [:show]
   end
 
   match "api", :to => "home#api"
